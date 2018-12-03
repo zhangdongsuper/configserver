@@ -15,8 +15,8 @@ spring:
       server:
         git:
           uri: https://github.com/zhangdongsuper/config-server.git
-          username: 2446902152@qq.com
-          password: zd199311
+          username: 123123
+          password: 123123123
           search-paths: '{application}'
         default-label: master
 
