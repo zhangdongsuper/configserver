@@ -1,0 +1,51 @@
+
+##配置端口号
+server:
+  port: 8041
+
+##配置服务的名称
+spring:
+#  profiles:
+#    active: subversion #跟git版本有区别,需要显示声明subversion
+  application:
+    name: config-server
+##配置 spring-cloud-config-server的 svn位置
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhangdongsuper/config-server.git
+          username: 2446902152@qq.com
+          password: zd199311
+          search-paths: '{application}'
+        default-label: master
+
+security:
+  user:
+    name: config-server
+    password: 12345678
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    hostname: 10.33.50.40
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    prefer-ip-address: true
+#    perferIpAddress: true
+    instance-id: http://127.0.0.1:8041
+#    instanceId: http://119.27.175.210:8041
+    ip-address: 119.27.175.210
+#    instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://119.27.175.210:8761/eureka/
+#    register-with-eureka: false
+#    fetch-registry: false
+#management:
+#  security:
+#    enabled: false
+
